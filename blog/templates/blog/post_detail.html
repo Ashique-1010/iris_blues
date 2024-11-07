@@ -1,6 +1,10 @@
-<!-- templates/blog/post_detail.html -->
-<h1>{{ post.title }}</h1>
-<p>{{ post.content }}</p>
-<a href="{% url 'post_update' post.pk %}">Edit</a>
-<a href="{% url 'post_delete' post.pk %}">Delete</a>
-<a href="{% url 'post_list' %}">Back to list</a>
+{% extends 'blog/base.html' %}
+
+{% block title %}Post Detail{% endblock %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <a href="{% url 'post_update' post.pk %}">Edit</a>
+    <a href="{% url 'post_delete' post.pk %}">Delete</a>
+{% endblock %}
