@@ -1,4 +1,24 @@
 {% extends 'blog/base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <ul class="post-list">
+        {% for post in posts %}
+            <li>
+                <div class="post-content">
+                    <h2 class="post-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+                    <p class="post-excerpt">{{ post.content|truncatewords:30 }}</p>
+                </div>
+                <div class="post-actions">
+                    <a href="{% url 'post_update' post.pk %}" class="edit-btn">Edit</a>
+                    <a href="{% url 'post_delete' post.pk %}" class="delete-btn">Delete</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% comment %} 
+{% extends 'blog/base.html' %}
 
 {% block title %}{% endblock %}
 
@@ -13,4 +33,4 @@
             </li>
         {% endfor %}
     </ul>
-{% endblock %}
+{% endblock %} {% endcomment %}

@@ -5,6 +5,8 @@
 {% block content %}
     <h1>{{ post.title }}</h1>
     <p>{{ post.content }}</p>
-    <a href="{% url 'post_update' post.pk %}">Edit</a>
-    <a href="{% url 'post_delete' post.pk %}">Delete</a>
+    <div class="post-detail-actions">
+        <a href="{% url 'post_update' post.pk %}" class="edit-btn">Edit</a>
+        <a href="{% url 'post_delete' post.pk %}" class="delete-btn">Delete</a>
+    </div>
 {% endblock %}
